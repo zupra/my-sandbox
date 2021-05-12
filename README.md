@@ -1,29 +1,20 @@
-# Gantt chart for Vue.js 
+# my-sandbox
 
-Here you can find the demo sources of Gantt chart component for Vue.js framework. The demo is implemented with the help of JavaScript Gantt chart library - dhtmlxGantt.
+## Build Setup
 
-## Project setup
+```bash
+# install dependencies
+$ yarn install
 
-```
-yarn install
-```
+# serve with hot reload at localhost:3000
+$ yarn dev
 
-### Compiles and hot-reloads for development
+# build for production and launch server
+$ yarn build
+$ yarn start
 
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
+# generate static project
+$ yarn generate
 ```
 
-For detailed explanation on how things work, consult the [Configuration Reference](https://cli.vuejs.org/config/)..
-
-
-## Related resources
-
- - Read full tutorial here: https://dhtmlx.com/blog/use-dhtmlxgantt-vue-js-framework-demo/
- - Learn about dhtmlxGantt here: https://dhtmlx.com/docs/products/dhtmlxGantt/
- - Learn about Vue.js here: https://vuejs.org/
+For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
