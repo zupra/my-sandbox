@@ -9,7 +9,8 @@
       img(
         src="https://icongr.am/clarity/eye-hide.svg?size=32&color=505fd3"
       )
-    button.btn_open(
+    //- button
+    .btn_open(
       @click="open = !open"
     ) {{ open ? 'скрыть API' : 'показать API'}}
   .preBlock(
@@ -41,21 +42,29 @@ export default {
   &_hide
     cursor pointer
 
+
+
 .btn_open
   // btn()
   // display: inline-block;
-  // border-radius: 4px;
-  // padding: 0.3em .7em;
-  margin .5rem 0
-  height 2rem
-
+  // margin .5rem 0
+  // height 2rem
+  
+  padding: 0.5em 1em;
   border: solid 1px transparent;
-  color: #FFFFFF;
-  background-color: rgba(#9555AF, .5);
+  font-size .7rem
+  letter-spacing: .01em
+  cursor pointer
+  border-radius: 4px;
+  color: #FFF;
+  background-color: #9b4dca //rgba(#9555AF, .7);
+  font-weight: 700;
+  text-transform: uppercase;
   &:hover
-    color: #9050AA;
-    border-color: currentColor;
-    background-color: white;
+    background #606c76;
+    // color: #9050AA;
+    // border-color: currentColor;
+    // background-color: white;
     // box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.5), 0 0 0 1.5px rgba(255, 105, 180, 0.5);
 
 
