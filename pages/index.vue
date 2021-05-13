@@ -1,5 +1,29 @@
 <template lang="pug">
-<GanttGrid :data="DATA"></GanttGrid>
+div
+  PreData 
+    div 
+      pre {{DATA}}
+
+
+  //-
+    input(
+      type="date"
+      v-model="newItem.start"
+    )
+    input(
+      type="date"
+      v-model="newItem.end"
+      
+    )
+    select
+      option(
+        v-for="el in ['blue', 'red', 'green', 'yellow', 'purple']"
+        v-model="newItem.type"
+        :value="newItem.type"
+      ) {{el}}
+    div
+      pre {{newItem}}
+  <GanttGrid :data="DATA"></GanttGrid>
 </template>
 
 <script>
@@ -12,7 +36,7 @@ function randomInt(min, max) {
   return rand
 }
 const types = ['blue', 'red', 'green', 'yellow', 'purple']
-const DATA = Array.from({ length: randomInt(5, 10) }, (_, idx) => ({
+const DATA = Array.from({ length: randomInt(10, 15) }, (_, idx) => ({
   type: types[randomInt(0, 3)],
   title: faker.lorem.sentence(),
   start: faker.date.past(),
@@ -35,6 +59,12 @@ export default {
   data() {
     return {
       DATA,
+      newItem: {
+        type: '',
+        title: '',
+        start: '',
+        end: '',
+      }
     }
   },
 }

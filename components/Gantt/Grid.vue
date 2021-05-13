@@ -1,7 +1,6 @@
 <template>
   <div class="ganttArea">
     <div class="gantt" :style="columnsStyleObject">
-
       <!-- МАСКА СЕТКИ -->
       <div class="mask" :style="columnsStyleObject">
         <div
@@ -25,7 +24,6 @@
           </div>
         </div>
       </div>
-
 
       <div
         v-for="(It, idx) in mapOfYears"
@@ -69,20 +67,17 @@ const months = [
   'Дек',
 ]
 
-
 export default {
   props: {
     data: {
       type: Array,
       default: () => [
-        [
-          {
-            type: 'blue',
-            title: 'Сходить в магазин',
-            start: '2021-02-25',
-            end: '2021-10-15',
-          },
-        ],
+        {
+          type: 'blue',
+          title: 'Сходить в магазин',
+          start: '2021-02-25',
+          end: '2021-10-15',
+        },
       ],
     },
   },
@@ -154,9 +149,9 @@ export default {
   height: 90%;
 }
 .mask__yLline {
-  border-right: 1px solid rgba(102,102,102,0.2);
+  border-right: 1px solid rgba(102, 102, 102, 0.2);
 }
-.mask__yLline:nth-child(12n+13) {
+.mask__yLline:nth-child(12n + 13) {
   border-left: 1px solid;
 }
 
@@ -168,7 +163,7 @@ export default {
   font-size: 1.2rem;
 }
 .th_month {
-  border-bottom: 1px solid rgba(102,102,102,0.2);
+  border-bottom: 1px solid rgba(102, 102, 102, 0.2);
   line-height: 2.4rem;
   color: #777;
 }
@@ -188,5 +183,4 @@ export default {
   border-radius: 4px;
   text-align: center;
 }
-
 </style>
