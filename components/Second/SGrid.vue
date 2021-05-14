@@ -1,54 +1,36 @@
-<template>
-  <div class="ganttArea">
-    <div class="gantt" :style="columnsStyleObject">
-      <!-- МАСКА СЕТКИ -->
-      <div class="mask" :style="columnsStyleObject">
-        <div
-          v-for="(_, idx) in Array(columns - 1)"
-          :key="`1_${idx}`"
-          class="mask__yLline"
-        >
-          <div
-            v-if="idx === currMonth"
-            class="currMonth-yLine"
-            :style="`margin-left: ${(100 / 30) * NOW.getDate()}%`"
-          >
-            <div class="currMonth-currDate">
-              {{
-                new Date(NOW).toLocaleDateString('ru-RU', {
-                  day: 'numeric',
-                  month: 'long',
-                })
-              }}
-            </div>
-          </div>
-        </div>
-      </div>
+<template lang="pug">
+.ganttArea
+  .gantt(:style='columnsStyleObject')
+    // МАСКА СЕТКИ
+    .mask(:style='columnsStyleObject')
+      .mask__yLline(
+        v-for="(_, idx) in Array(columns - 1)"
+        :key="`1_${idx}`"
+      )
+        // currMonth
+        .currMonth-yLine(
+          v-if="idx === currMonth"
+          :style="`margin-left: ${(100 / 30) * NOW.getDate()}%`"
+        )
+          .currMonth-currDate {{ new Date(NOW).toLocaleDateString("ru-RU", { day: "numeric", month: "long" }) }}
 
-      <div
-        v-for="(It, idx) in mapOfYears"
-        :key="`2_${idx}`"
-        class="th_year"
-        :style="`grid-column: ${It.start} / ${It.end}`"
-      >
-        {{ It.title }}
-      </div>
-      <div
-        v-for="(th, idx) in _months"
-        :key="`3_${idx}`"
-        class="th_month"
-        :class="{ currMonth_text: idx === currMonth }"
-      >
-        {{ th }}
-      </div>
-      <GanttItem
-        v-for="(It, idx) in data"
-        :key="`4_${idx}`"
-        :It="It"
-        :listOfYears="listOfYears"
-      ></GanttItem>
-    </div>
-  </div>
+    //
+    .th_year(
+      v-for="(It, idx) in mapOfYears"
+      :key="`2_${idx}`"
+      :style="`grid-column: ${It.start} / ${It.end}`"
+    ) {{ It.title }}
+    .th_month(
+      v-for="(th, idx) in _months"
+      :key="`3_${idx}`"
+      :class="{ currMonth_text: idx === currMonth }"
+    ) {{ th }}
+    SecondSItem(
+      v-for="(It, idx) in data"
+      :key="`4_${idx}`"
+      :It="It"
+      :listOfYears="listOfYears"
+    )
 </template>
 
 <script>
@@ -89,14 +71,17 @@ export default {
   },
   computed: {
     listOfYears() {
-      return [
-        ...new Set(
-          this.data.reduce(
-            (acc, el) => [...acc, el.start.getFullYear(), el.end.getFullYear()],
-            []
-          )
-        ),
-      ].sort()
+
+      return [2021,2022,2023]
+
+      // return [
+      //   ...new Set(
+      //     this.data.reduce(
+      //       (acc, el) => [...acc, el.start.getFullYear(), el.end.getFullYear()],
+      //       []
+      //     )
+      //   ),
+      // ].sort()
     },
     columns() {
       return this.listOfYears.length * 12
@@ -128,7 +113,9 @@ export default {
 }
 </script>
 
-<style>
+
+<style scoped>
+
 .ganttArea {
   scroll-snap-type: x mandatory;
   overflow-x: scroll;

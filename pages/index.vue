@@ -23,7 +23,7 @@ div
       ) {{el}}
     div
       pre {{newItem}}
-  <GanttGrid :data="DATA"></GanttGrid>
+  <GanttGrid :data="DATA"/>
 </template>
 
 <script>

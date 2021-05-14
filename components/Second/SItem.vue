@@ -1,32 +1,22 @@
-<template>
-  <div
-    class="It"
-    :class="It.type"
-    :style="styleObject"
-    @mouseover="showTooltip = true"
-    @mouseout="showTooltip = false"
-    @mousemove="onMove"
-  >
-    <div class="It__title">{{ It.title }}</div>
-    <div class="It__period">
-      {{ new Date(It.start).toLocaleDateString('ru-RU', localeDateFormat) }} –
-      {{ new Date(It.end).toLocaleDateString('ru-RU', localeDateFormat) }}
-    </div>
-    <!-- pre {{ start }} - {{ end }}-->
+<template lang="pug">
+.It2(
+  :class="It.type || 'default'",
+  :style='styleObject',
+  @mouseover='showTooltip = true',
+  @mouseout='showTooltip = false',
+  @mousemove='onMove'
+)
+  .It2__title {{ It.title }}
+  // .It__period {{ new Date(It.start).toLocaleDateString("ru-RU", localeDateFormat) }} – {{ new Date(It.end).toLocaleDateString("ru-RU", localeDateFormat) }}
+  //- <!-- pre {{ start }} - {{ end }}-->
 
-    <div
-      v-if="showTooltip"
-      class="Popover"
-      :style="{ top: `${Y}px`, left: `${X}px`, transform: `translateY(-100%)` }"
-    >
-      <div class="Popover__title">{{ It.title }}</div>
-      <div class="Popover__period">
-        {{ new Date(It.start).toLocaleDateString('ru-RU', localeDateFormat) }}
-        –
-        {{ new Date(It.end).toLocaleDateString('ru-RU', localeDateFormat) }}
-      </div>
-    </div>
-  </div>
+  .Popover(
+    v-if="showTooltip"
+    :style="{ top: `${Y}px`, left: `${X}px`, transform: `translateY(-100%)` }"
+  )
+    .Popover__title {{ It.title }}
+    .Popover__period {{ new Date(It.start).toLocaleDateString('ru-RU', localeDateFormat) }} – {{ new Date(It.end).toLocaleDateString('ru-RU', localeDateFormat) }}
+
 </template>
 
 
@@ -109,24 +99,45 @@ export default {
 }
 </script>
 
+
 <style lang="stylus">
-.It {
+.It2
   cursor: pointer;
   position: relative;
   display: grid;
-  grid-template-rows: 2rem 1rem;
+  /* grid-template-rows: 2rem 1rem; */
   align-items: center;
-  padding: 0 1rem 0.3rem;
   border-radius: 8px;
-  border-left: 0.5em solid transparent;
-}
-.It__title,
-.It__period {
+  /* padding: 0 1rem 0.3rem; */
+  /* border-left: 0.5em solid transparent; */
+
+  padding: .5rem;
+  &:not(:last-of-type):before
+    content: '';
+    position: absolute;
+    width 20px
+    height 20px
+    left -20px
+    bottom -36px
+    background-image url('https://icongr.am/clarity/child-arrow.svg?size=20&color=81abee')
+  // &:last-of-type
+  //   background #000 !important
+
+.It2__title,
+.It2__period {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
+
+
+
+.default {
+  background: #81ABEE;
+  color: #fff;
+  /* font-size: .8rem */
+}
 
 
 .blue {
@@ -153,6 +164,8 @@ export default {
 
 
 .Popover {
+  color: #222;
+
   position: absolute;
   z-index: 10;
   box-shadow: 0 0.2em 2em -0.1em rgba(0,0,0,0.4);
