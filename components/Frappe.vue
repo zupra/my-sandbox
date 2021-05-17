@@ -38,10 +38,12 @@ export default {
   },
   mounted() {
     this.setupGanttChart()
+    // console.log(this.gantt)
   },
   methods: {
     setupGanttChart() {
       this.gantt = new Gantt(this.$refs.gantt, this.tasks, {
+        language: "ru",
         on_click: (task) => {
           this.$emit('task-updated', task)
         },

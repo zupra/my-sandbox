@@ -35,6 +35,7 @@
     <br />
 
     <frappe-gantt
+      class="frappe-gantt"
       :view-mode="mode"
       :tasks="tasks"
       @task-updated="debugEventLog.push($event)"
@@ -46,7 +47,7 @@
       clicking or dragging make sure to then update the task list passed in via
       prop (App.vue)
     </h3> -->
-    <button @click="addRandomTask">Add</button>
+    <a-button type="primary" size="large" @click="addRandomTask">Добавить</a-button>
 
     <!-- <h5>
         These are the events being emitted by the Vue.js component wrapper for
@@ -87,7 +88,7 @@ export default {
           start: '2020-01-05',
           end: '2020-01-10',
           progress: 20,
-          dependencies: '1,2,3',
+          dependencies: '1',
         },
         {
           id: '3',
@@ -103,7 +104,7 @@ export default {
           start: '2020-01-15',
           end: '2020-01-20',
           progress: 40,
-          dependencies: '3',
+          dependencies: ['3', '2', '1'],
         },
       ],
       debugEventLog: [],
@@ -132,4 +133,7 @@ export default {
 <style lang="stylus" scoped>
 .FRAPPE
   margin: 1rem;
+
+.frappe-gantt
+  margin: 0 1rem;
 </style>
