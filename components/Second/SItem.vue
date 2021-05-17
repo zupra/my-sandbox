@@ -15,7 +15,7 @@
     :style="{ top: `${Y}px`, left: `${X}px`, transform: `translateY(-100%)` }"
   )
     .Popover__title {{ It.title }}
-    .Popover__period {{ new Date(It.start).toLocaleDateString('ru-RU', localeDateFormat) }} – {{ new Date(It.end).toLocaleDateString('ru-RU', localeDateFormat) }}
+    small.Popover__period {{ new Date(It.start).toLocaleDateString('ru-RU', localeDateFormat) }} – {{ new Date(It.end).toLocaleDateString('ru-RU', localeDateFormat) }}
 
 </template>
 

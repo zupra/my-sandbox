@@ -8,10 +8,10 @@
     @mousemove="onMove"
   >
     <div class="It__title">{{ It.title }}</div>
-    <div class="It__period">
+    <small class="It__period">
       {{ new Date(It.start).toLocaleDateString('ru-RU', localeDateFormat) }} –
       {{ new Date(It.end).toLocaleDateString('ru-RU', localeDateFormat) }}
-    </div>
+    </small>
     <!-- pre {{ start }} - {{ end }}-->
 
     <div
@@ -20,11 +20,11 @@
       :style="{ top: `${Y}px`, left: `${X}px`, transform: `translateY(-100%)` }"
     >
       <div class="Popover__title">{{ It.title }}</div>
-      <div class="Popover__period">
+      <small class="Popover__period">
         {{ new Date(It.start).toLocaleDateString('ru-RU', localeDateFormat) }}
         –
         {{ new Date(It.end).toLocaleDateString('ru-RU', localeDateFormat) }}
-      </div>
+      </small>
     </div>
   </div>
 </template>
