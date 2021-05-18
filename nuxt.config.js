@@ -30,7 +30,8 @@ export default {
   // components: true,
   components: [
     '~/components/',
-    // { path: '~/components/foo/', prefix: 'foo' }
+    // { path: '~/components/Frape/', prefix: 'Frape' }
+    { path: '~/components', extensions: ['vue'] }
   ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules

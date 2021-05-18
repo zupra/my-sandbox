@@ -34,7 +34,7 @@
     <br />
     <br />
 
-    <frappe-gantt
+    <FrappeGantt
       class="frappe-gantt"
       :view-mode="mode"
       :tasks="tasks"
@@ -62,7 +62,7 @@
 </template>
 
 <script>
-import FrappeGantt from '~/components/Frappe.vue'
+import FrappeGantt from '~/components/Frape/Gantt.vue'
 // const uuidv5 = require('uuid/v5');
 // import uuidv4 from 'uuid/v4';
 

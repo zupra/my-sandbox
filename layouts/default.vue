@@ -3,7 +3,7 @@ div
 
   NLink.btn(to="/") Main
   NLink.btn( 
-    v-for="(V,K) in {2:'dhtmlx-gantt', 3:'Гант + связи',4:'Гант + связи c перетаскиванием'}"
+    v-for="(V,K) in {2:'dhtmlx-gantt', 3:'Гант + связи',4:'Гант + связи c перетаскиванием', 'fullcalendar': 'fullcalendar'}"
     :to="K" 
   ) {{V}}
   <Nuxt />
