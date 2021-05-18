@@ -42,17 +42,17 @@
       @task-date-updated="debugEventLog.push($event)"
       @task-progress-change="debugEventLog.push($event)"
     />
-    <!-- <h3>
+    <!--
       TODO: When the Frappe Chart component emits task changes from user
       clicking or dragging make sure to then update the task list passed in via
       prop (App.vue)
-    </h3> -->
+    -->
     <a-button type="primary" size="large" @click="addRandomTask">Добавить</a-button>
 
-    <!-- <h5>
-        These are the events being emitted by the Vue.js component wrapper for
-        Frappe Gantt
-      </h5> -->
+    <!-- 
+      These are the events being emitted by the Vue.js component wrapper for
+      Frappe Gantt
+    -->
     <ul>
       <li v-for="event in debugEventLog" :key="event.id">
         {{ event }}
@@ -73,7 +73,7 @@ export default {
   },
   data() {
     return {
-      mode: 'day',
+      mode: 'month',
       tasks: [
         {
           id: '1',
@@ -81,6 +81,7 @@ export default {
           start: '2020-01-01',
           end: '2021-01-05',
           progress: 10,
+          custom_class: 'bar-main'
         },
         {
           id: '2',
@@ -106,6 +107,23 @@ export default {
           progress: 40,
           dependencies: ['3', '2', '1'],
         },
+
+        {
+          id: '5',
+          name: 'ПРОГНОЗ 2',
+          start: '2020-01-01',
+          end: '2021-01-05',
+          // progress: 10,
+          custom_class: 'bar-2'
+        },
+        {
+          id: '6',
+          name: 'ПРОГНОЗ 3',
+          start: '2020-01-01',
+          end: '2021-01-05',
+          // progress: 10,
+          custom_class: 'bar-3'
+        }
       ],
       debugEventLog: [],
     }
@@ -131,6 +149,11 @@ export default {
 
 
 <style lang="stylus" scoped>
+
+
+.bar-main
+  background red
+
 .FRAPPE
   margin: 1rem;
 

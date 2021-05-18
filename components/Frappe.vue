@@ -79,6 +79,11 @@ export default {
 }
 </script>
 
+
+
+
+
+
 <style>
 /* @import '~/node_modules/frappe-gantt/dist/frappe-gantt.css'; */
 
@@ -132,7 +137,7 @@ export default {
 }
 
 .gantt .bar-progress {
-  fill: #a3a3ff;
+  fill: #8DC95E;
 }
 
 .gantt .bar-invalid {
@@ -173,7 +178,7 @@ export default {
   fill: #a9b5c1;
 }
 .gantt .bar-wrapper:hover .bar-progress {
-  fill: #8a8aff;
+  fill: #8DC95E;
 }
 .gantt .bar-wrapper:hover .handle {
   visibility: visible;
@@ -183,7 +188,7 @@ export default {
   fill: #a9b5c1;
 }
 .gantt .bar-wrapper.active .bar-progress {
-  fill: #8a8aff;
+  fill: #8DC95E;
 }
 
 .gantt .lower-text,
@@ -233,4 +238,20 @@ export default {
   border: 5px solid transparent;
   border-top-color: rgba(0, 0, 0, 0.8);
 }
+</style>
+
+
+<style lang="stylus">
+.bar-main
+  .bar
+    fill #81ABEE !important
+
+.bar-2
+  .bar
+    fill #D06E0B !important
+
+
+.bar-3
+  .bar
+    fill #E9A35D !important
 </style>
