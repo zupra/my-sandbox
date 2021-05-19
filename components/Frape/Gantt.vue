@@ -256,5 +256,9 @@ export default {
 
 .bar-3
   .bar
+    fill #E9A35D !important
+
+.bar-4
+  .bar
     fill #D06E0B !important
 </style>

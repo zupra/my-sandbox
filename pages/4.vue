@@ -90,7 +90,7 @@ export default {
           id: '12',
           name: 'С просрочкой',
           start: '2020-04-05',
-          end: '2020-05-10',
+          end: '2020-05-20',
           progress: 0,
           dependencies: '1',
           custom_class: 'bar-main'
@@ -99,7 +99,7 @@ export default {
           custom_index: 1,
           id: '22',
           name: 'Просрочка',
-          start: '2020-05-11',
+          start: '2020-05-21',
           end: '2020-06-10',
           progress: 0,
           dependencies: '',
@@ -123,7 +123,7 @@ export default {
           end: '2020-08-10',
           progress: 0,
           dependencies: '',
-          custom_class: 'bar-3'
+          custom_class: 'bar-4'
         },
 
 
