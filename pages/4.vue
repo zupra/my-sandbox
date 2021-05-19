@@ -185,8 +185,8 @@ export default {
       this.tasks.push({
         id: this.tasks.length + 1, //id,
         name: 'NAME', //id,
-        start: '2020-01-01',
-        end: '2020-01-05',
+        start: '2020-04-20',
+        end: '2020-05-20',
         progress: Math.random() * 100,
         dependencies: '1',
       })
