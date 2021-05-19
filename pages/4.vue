@@ -106,20 +106,20 @@ export default {
           custom_class: 'bar-2'
         },
         {
-          custom_index: 1,
+          custom_index: 2,
           id: '32',
-          name: 'Прогноз 2',
-          start: '2020-06-11',
+          name: 'Прогноз 1',
+          start: '2020-04-05',
           end: '2020-07-10',
           progress: 0,
-          dependencies: '',
+          // dependencies: '12',
           custom_class: 'bar-3'
         },
         {
-          custom_index: 1,
+          custom_index: 3,
           id: '42',
-          name: 'Прогноз 3',
-          start: '2020-07-11',
+          name: 'Прогноз 2',
+          start: '2020-04-05',
           end: '2020-08-10',
           progress: 0,
           dependencies: '',

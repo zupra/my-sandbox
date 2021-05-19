@@ -46,6 +46,17 @@ export default {
     setupGanttChart() {
       this.gantt = new Gantt(this.$refs.gantt, this.tasks, {
         language: "ru",
+        // header_height: 0,
+        // column_width: 30,
+        // step: 24,
+        // view_modes: ['Quarter Day', 'Half Day', 'Day', 'Week', 'Month'],
+        // bar_height: 20,
+        // bar_corner_radius: 3,
+        // arrow_curve: 5,
+        // padding: 18,
+        // view_mode: 'Day',   
+        // date_format: 'YYYY-MM-DD',
+        // custom_popup_html: null
         bar_corner_radius: 5,
         on_click: (task) => {
           this.$emit('task-updated', task)
