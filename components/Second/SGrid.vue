@@ -31,12 +31,17 @@
         :key="`3_${idx}`"
         :class="{ currMonth_text: idx === currMonth }"
       ) {{ th }}
-      SecondSItem(
+
+      template(
         v-for="(It, idx) in data"
-        :key="`4_${idx}`"
-        :It="It"
-        :listOfYears="listOfYears"
       )
+        SecondSItem(
+          :key="`4_${idx}`"
+          :It="It"
+          :listOfYears="listOfYears"
+        )
+        .ROW
+
 </template>
 
 <script>
@@ -131,12 +136,22 @@ export default {
 .FLEX
   display: flex;
 .taskList
-  margin-top 5rem
+  // margin-top 77px
+  padding-top 77px
+  border-right 2px solid #777
   &__row
-    height 2.8rem
-    // width 400px
+    height 58px
+    line-height 1
+    width 400px
+    border-bottom 1px solid rgba(#999, 0.3)
+    padding-left 1rem
+    display:flex
+    align-items center
+    color #222
 
-
+.ROW
+  grid-column: 1 / -1;
+  border-bottom 1px solid rgba(#999, 0.1)
 
 
 
@@ -147,6 +162,7 @@ export default {
 .ganttArea
   scroll-snap-type x mandatory
   overflow-x scroll
+  overflow-y: hidden;
 
 .gantt,
 .mask

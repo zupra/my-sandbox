@@ -6,7 +6,8 @@
 </template>
 
 <script>
-import Gantt from 'frappe-gantt'
+// import Gantt from 'frappe-gantt'
+import Gantt from './src/index.js' 
 // import Gantt from '~/DATA/Gantt.js'
 
 export default {
@@ -45,6 +46,7 @@ export default {
     setupGanttChart() {
       this.gantt = new Gantt(this.$refs.gantt, this.tasks, {
         language: "ru",
+        bar_corner_radius: 5,
         on_click: (task) => {
           this.$emit('task-updated', task)
         },
@@ -249,10 +251,10 @@ export default {
 
 .bar-2
   .bar
-    fill #D06E0B !important
+    fill #E14761 !important
 
 
 .bar-3
   .bar
-    fill #E9A35D !important
+    fill #D06E0B !important
 </style>

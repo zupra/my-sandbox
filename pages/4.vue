@@ -78,52 +78,103 @@ export default {
         {
           id: '1',
           name: 'БОЛЬШАЯ ЗАДАЧА',
-          start: '2020-01-01',
-          end: '2021-01-05',
-          progress: 10,
+          start: '2020-04-04',
+          end: '2021-04-05',
+          progress: 70,
+          custom_class: 'bar-main'
+        },
+
+
+
+        {
+          id: '12',
+          name: 'С просрочкой',
+          start: '2020-04-05',
+          end: '2020-05-10',
+          progress: 0,
+          dependencies: '1',
           custom_class: 'bar-main'
         },
         {
+          custom_index: 1,
+          id: '22',
+          name: 'Просрочка',
+          start: '2020-05-11',
+          end: '2020-06-10',
+          progress: 0,
+          dependencies: '',
+          custom_class: 'bar-2'
+        },
+        {
+          custom_index: 1,
+          id: '32',
+          name: 'Прогноз 2',
+          start: '2020-06-11',
+          end: '2020-07-10',
+          progress: 0,
+          dependencies: '',
+          custom_class: 'bar-3'
+        },
+        {
+          custom_index: 1,
+          id: '42',
+          name: 'Прогноз 3',
+          start: '2020-07-11',
+          end: '2020-08-10',
+          progress: 0,
+          dependencies: '',
+          custom_class: 'bar-3'
+        },
+
+
+
+
+        {
+          // custom_index: 2,
           id: '2',
           name: 'полить цветы',
-          start: '2020-01-05',
-          end: '2020-01-10',
-          progress: 20,
+          start: '2020-04-05',
+          end: '2020-05-10',
+          progress: 50,
           dependencies: '1',
         },
         {
+          // custom_index: 3,
           id: '3',
           name: 'покосить траву',
-          start: '2020-01-10',
-          end: '2020-01-15',
+          start: '2020-04-10',
+          end: '2020-05-15',
           progress: 30,
           dependencies: '2',
         },
         {
+          // custom_index: 4,
           id: '4',
           name: 'покрасить забор',
-          start: '2020-01-15',
-          end: '2020-01-20',
+          start: '2020-04-05',
+          end: '2020-05-10',
           progress: 40,
-          dependencies: ['3', '2', '1'],
+          dependencies: ['1', '2', '3'],
         },
 
+        /*
         {
           id: '5',
           name: 'ПРОГНОЗ 2',
-          start: '2020-01-01',
-          end: '2021-01-05',
+          start: '2020-04-04',
+          end: '2021-04-05',
           // progress: 10,
           custom_class: 'bar-2'
         },
         {
           id: '6',
           name: 'ПРОГНОЗ 3',
-          start: '2020-01-01',
-          end: '2021-01-05',
+          start: '2020-04-04',
+          end: '2021-04-05',
           // progress: 10,
           custom_class: 'bar-3'
         }
+        */
       ],
       debugEventLog: [],
     }
