@@ -146,7 +146,7 @@ export default {
   position: absolute;
   top: 2rem;
   width: 100%;
-  bottom: 0;
+  height: 100%;
 }
 .mask__yLline {
   border-right: 1px solid rgba(102, 102, 102, 0.2);

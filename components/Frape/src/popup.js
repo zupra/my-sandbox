@@ -54,7 +54,7 @@ export default class Popup {
       this.parent.style.top = position_meta.y + 'px'
 
       this.pointer.style.transform = 'rotateZ(90deg)'
-      this.pointer.style.left = '-7px'
+      this.pointer.style.left = '-5px'
       this.pointer.style.top = '2px'
     }
 

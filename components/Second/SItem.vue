@@ -112,6 +112,8 @@ export default {
   /* border-left: 0.5em solid transparent; */
 
   padding: .5rem;
+
+  /*
   &:not(:last-of-type):before
     content: '';
     position: absolute;
@@ -120,8 +122,7 @@ export default {
     left -20px
     bottom -36px
     background-image url('https://icongr.am/clarity/child-arrow.svg?size=20&color=81abee')
-  // &:last-of-type
-  //   background #000 !important
+  */
 
 .It2__title,
 .It2__period {
