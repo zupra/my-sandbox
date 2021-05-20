@@ -1,13 +1,68 @@
 <template lang="pug">
-div
+#layout
 
-  NLink.btn(to="/") Main
-  NLink.btn( 
-    v-for="(V,K) in {2:'dhtmlx-gantt', 3:'Гант + связи',4:'Гант + связи c перетаскиванием', 'fullcalendar': 'fullcalendar'}"
-    :to="K" 
+  #layout_topNav
+    NLink.btn(to="/") Main
+    NLink.btn( 
+      v-for="(V,K) in {2:'dhtmlx-gantt', 3:'Гант + связи',4:'Гант + связи c перетаскиванием', 'fullcalendar': 'fullcalendar'}"
+      :to="K" 
   ) {{V}}
-  <Nuxt />
+
+  //- SIDEBAR
+  #layout_sidebar SIDEBAR
+
+
+  #layout_main
+    <Nuxt />
+
+
+  #layout_footer © footer
 </template>
+
+
+
+<style>
+#layout {
+  display: grid;
+  height: 100vh;
+  overflow-x: hidden;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    'sidebar header'
+    'sidebar main'
+    'sidebar footer';
+}
+#layout_main,
+#layout_sidebar {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+#layout_topNav {
+  grid-area: header;
+  overflow: visible;
+  padding-left: 2rem;
+  box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
+  position: relative;
+  z-index: 1000;
+}
+#layout_sidebar {
+  grid-area: sidebar;
+  background-color: #092152;
+  width: 240px;
+}
+#layout_main {
+  grid-area: main;
+  padding: 1em 2em;
+}
+#layout_footer {
+  grid-area: footer;
+  background: #CCC;
+  padding: 1em;
+}
+</style>
+
+
 
 <style lang="styl">
 *,
@@ -60,6 +115,4 @@ btn()
   &.nuxt-link-exact-active
     border-color: #40a9ff;
     color: rgba(#000,.65);
-
-
 </style>
