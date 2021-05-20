@@ -41,7 +41,7 @@
 #layout_topNav {
   grid-area: header;
   overflow: visible;
-  padding-left: 2rem;
+  padding-left: .3rem 2rem;
   box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
   position: relative;
   z-index: 1000;
@@ -53,7 +53,7 @@
 }
 #layout_main {
   grid-area: main;
-  padding: 1em 2em;
+  padding: 2em;
 }
 #layout_footer {
   grid-area: footer;

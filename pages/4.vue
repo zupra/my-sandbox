@@ -200,14 +200,4 @@ export default {
 
 
 <style lang="stylus" scoped>
-
-
-.bar-main
-  background red
-
-.FRAPPE
-  margin: 1rem;
-
-.frappe-gantt
-  margin: 0 1rem;
 </style>
