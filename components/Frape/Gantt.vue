@@ -6,10 +6,8 @@
 </template>
 
 <script>
-// import Gantt from 'frappe-gantt'
 import Gantt from './src/index.js' 
-// import Gantt from '~/DATA/Gantt.js'
-
+// import Gantt from 'frappe-gantt'
 export default {
   name: 'FrappeGantt',
   props: {
@@ -58,6 +56,9 @@ export default {
         // date_format: 'YYYY-MM-DD',
         // custom_popup_html: null
         bar_corner_radius: 5,
+        popup_trigger: 'mouseover',
+
+
         on_click: (task) => {
           this.$emit('task-updated', task)
         },
@@ -70,7 +71,7 @@ export default {
           this.$emit('task-progress-updated', { task, progress })
         },
 
-        //I doubt you will ever need this as the developer already knows what view mode they set.
+        // режим просмотра
         on_view_change: (mode) => {
           this.$emit('view-mode-updated', mode)
         },
@@ -238,7 +239,7 @@ export default {
   border-radius: 3px;
 }
 .gantt-container .popup-wrapper .title {
-  border-bottom: 3px solid #a3a3ff;
+  /* border-bottom: 3px solid #a3a3ff; */
   padding: 10px;
 }
 .gantt-container .popup-wrapper .subtitle {
