@@ -37,11 +37,23 @@
 #layout_sidebar {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  /* 
+    overflow auto
+    scrollbar-width none
+    -ms-overflow-style none
+    &::-webkit-scrollbar
+      display none 
+  */
+
+
 }
 #layout_topNav {
   grid-area: header;
   overflow: visible;
-  box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
+  /* box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%); */
+  box-shadow: 4px 1px 8px -1px #CCC;
+  filter: drop-shadow(14px 3px 8px #CCC);
+  background: #FFF;
   position: relative;
   z-index: 1000;
 }
@@ -53,18 +65,22 @@
 #layout_main {
   grid-area: main;
   padding: 2em;
+  background: #f9f9f9;
 }
 #layout_footer {
   grid-area: footer;
-  background: #CCC;
   padding: 1em;
+  background: #e8e8e8;
+  padding: 1em;
+  /* box-shadow: 0px 4px 10px -6px #777 inset;
+  border-top: 2px solid #CCC; */
 }
 </style>
 
 
 
 <style lang="styl">
-*,
+/* *,
 *::before,
 *::after
   box-sizing: border-box;
@@ -75,7 +91,7 @@ html
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased; */
 
 
 

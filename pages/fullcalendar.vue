@@ -7,24 +7,24 @@ import ruLocale from '@fullcalendar/core/locales/ru'
 // import { INITIAL_EVENTS, createEventId } from './event-utils'
 
 let eventGuid = 0
+function createEventId() {
+  return String(eventGuid++)
+}
 const todayStr = new Date().toISOString().replace(/T.*$/, '') // YYYY-MM-DD of today
-
 const INITIAL_EVENTS = [
   {
     id: createEventId(),
-    title: 'All-day event',
+    title: 'Весь день',
     start: todayStr,
   },
   {
     id: createEventId(),
-    title: 'Timed event',
+    title: 'По времени',
     start: todayStr + 'T12:00:00',
   },
 ]
 
-function createEventId() {
-  return String(eventGuid++)
-}
+
 
 export default {
   components: {
@@ -69,7 +69,7 @@ export default {
       this.calendarOptions.weekends = !this.calendarOptions.weekends // update a property
     },
     handleDateSelect(selectInfo) {
-      const title = prompt('Please enter a new title for your event')
+      const title = prompt('Введите название для вашего мероприятия')
       const calendarApi = selectInfo.view.calendar
       calendarApi.unselect() // clear date selection
       if (title) {
@@ -85,7 +85,7 @@ export default {
     handleEventClick(clickInfo) {
       if (
         confirm(
-          `Are you sure you want to delete the event '${clickInfo.event.title}'`
+          `Вы уверены, что хотите удалить мероприятие? '${clickInfo.event.title}'`
         )
       ) {
         clickInfo.event.remove()
@@ -102,11 +102,11 @@ export default {
   <div class="demo-app">
     <div class="demo-app-sidebar">
       <div class="demo-app-sidebar-section">
-        <h2>Instructions</h2>
+        <h2>Инструкции</h2>
         <ul>
-          <li>Select dates and you will be prompted to create a new event</li>
-          <li>Drag, drop, and resize events</li>
-          <li>Click an event to delete it</li>
+          <li>Проведите кликом даты, и будет предложено создать новое мероприятие.</li>
+          <li>DragNdrop размера событий</li>
+          <li>клик на созданное мероприятие, чтобы удалить его</li>
         </ul>
       </div>
       <div class="demo-app-sidebar-section">
@@ -116,11 +116,11 @@ export default {
             :checked="calendarOptions.weekends"
             @change="handleWeekendsToggle"
           />
-          toggle weekends
+          Включить выходные
         </label>
       </div>
       <div class="demo-app-sidebar-section">
-        <h2>All Events ({{ currentEvents.length }})</h2>
+        <h2>Список мероприятий: ({{ currentEvents.length }})</h2>
         <ul>
           <li v-for="event in currentEvents" :key="event.id">
             <b>{{ event.startStr }}</b>
@@ -170,7 +170,7 @@ b { /* used for event dates/times */
 .demo-app-sidebar {
   width: 300px;
   line-height: 1.5;
-  background: #eaf9ff;
+  background: #f5f5f5;
   border-right: 1px solid #d3e2e8;
 }
 .demo-app-sidebar-section {

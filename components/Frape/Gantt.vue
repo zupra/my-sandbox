@@ -1,12 +1,11 @@
-
 <template>
-  <div>
-    <svg ref="gantt" />
+  <div ref="gantt"> 
+    <!-- <svg ref="gantt" /> -->
   </div>
 </template>
 
 <script>
-import Gantt from './src/index.js' 
+import Gantt from './src/index.js'
 // import Gantt from 'frappe-gantt'
 export default {
   name: 'FrappeGantt',
@@ -43,8 +42,8 @@ export default {
   methods: {
     setupGanttChart() {
       this.gantt = new Gantt(this.$refs.gantt, this.tasks, {
-        language: "ru",
-        // header_height: 0,
+        language: 'ru',
+        // header_height: 10,
         // column_width: 30,
         // step: 24,
         // view_modes: ['Quarter Day', 'Half Day', 'Day', 'Week', 'Month'],
@@ -52,12 +51,25 @@ export default {
         // bar_corner_radius: 3,
         // arrow_curve: 5,
         // padding: 18,
-        // view_mode: 'Day',   
+        // view_mode: 'Day',
         // date_format: 'YYYY-MM-DD',
         // custom_popup_html: null
         bar_corner_radius: 5,
         popup_trigger: 'mouseover',
-
+        /*
+        custom_popup_html(task) {
+          // the task object will contain the updated
+          // dates and progress value
+          const end_date = task._end.format('MMM D')
+          return `
+          <div class="details-container">
+            <h5>${task.name}</h5>
+            <p>Expected to finish by ${end_date}</p>
+            <p>${task.progress}% completed!</p>
+          </div>
+          `
+        },
+        */
 
         on_click: (task) => {
           this.$emit('task-updated', task)
@@ -93,11 +105,6 @@ export default {
   },
 }
 </script>
-
-
-
-
-
 
 <style>
 /* @import '~/node_modules/frappe-gantt/dist/frappe-gantt.css'; */
@@ -152,7 +159,7 @@ export default {
 }
 
 .gantt .bar-progress {
-  fill: #8DC95E;
+  fill: #8dc95e;
 }
 
 .gantt .bar-invalid {
@@ -193,7 +200,7 @@ export default {
   fill: #a9b5c1;
 }
 .gantt .bar-wrapper:hover .bar-progress {
-  fill: #8DC95E;
+  fill: #8dc95e;
 }
 .gantt .bar-wrapper:hover .handle {
   visibility: visible;
@@ -203,7 +210,7 @@ export default {
   fill: #a9b5c1;
 }
 .gantt .bar-wrapper.active .bar-progress {
-  fill: #8DC95E;
+  fill: #8dc95e;
 }
 
 .gantt .lower-text,
@@ -214,6 +221,7 @@ export default {
 
 .gantt .upper-text {
   fill: #555;
+  font-size: 18px;
 }
 
 .gantt .lower-text {
@@ -255,22 +263,20 @@ export default {
 }
 </style>
 
-
 <style lang="stylus">
 .bar-main
   .bar
-    fill #81ABEE !important
+    fill: #81ABEE !important;
 
 .bar-2
   .bar
-    fill #E14761 !important
-
+    fill: #E14761 !important;
 
 .bar-3
   .bar
-    fill #E9A35D !important
+    fill: #E9A35D !important;
 
 .bar-4
   .bar
-    fill #D06E0B !important
+    fill: #D06E0B !important;
 </style>
