@@ -23,7 +23,6 @@
     -->
 
     <div class="flex x_sb">
-
       <a-button type="primary" size="large" @click="showModal = true"
         ><a-icon type="plus" />Добавить</a-button
       >
@@ -57,9 +56,7 @@
       @task-date-updated="debugEventLog.push($event)"
       @task-progress-updated="debugEventLog.push($event)"
     />
-    <a-button type="primary" @click="addRandomTask"
-      >addRandomTask()</a-button
-    >
+    <a-button type="primary" @click="addRandomTask">addRandomTask()</a-button>
 
     <!-- debugEventLog -->
     <ul>
@@ -70,15 +67,45 @@
 
     <a-modal v-model="showModal" title="Создать Задачу" on-ok="">
       <template slot="footer">
-        <a-button key="back" @click="showModal = !showModal"> Закрыть </a-button>
-        <a-button
-          key="submit"
-          type="primary"
-          @click=""
-        >
+        <a-button key="back" @click="showModal = !showModal">
+          Закрыть
+        </a-button>
+        <a-button key="submit" type="primary" @click="addTask">
           Создать
         </a-button>
       </template>
+
+      <div>
+        <b>Назание задачи</b>
+        <AInput v-model="newTaskModel.name"></AInput>
+      </div>
+      <br />
+      <div>
+        <b>Процент выполнения</b>
+        <div class="flex">
+          <ASlider
+            v-model:value="newTaskModel.progress"
+            :min="0"
+            :max="100"
+            style="width: 10em"
+          ></ASlider>
+          <AInput v-model="newTaskModel.progress" style="width: 4em"></AInput>
+        </div>
+      </div>
+      <br />
+      <div>
+        <b>Начало</b>
+        <AInput type="date" v-model="newTaskModel.start"></AInput>
+      </div>
+      <div>
+        <b>Окончание</b>
+        <AInput type="date" v-model="newTaskModel.end"></AInput>
+      </div>
+      <br />
+      <div>
+        <b>Зависит от </b>
+        <!-- <AInput type="date" v-model="newTaskModel.dependencies"></AInput> -->
+      </div>
     </a-modal>
   </div>
 </template>
@@ -186,7 +213,7 @@ export default {
         end: '',
         progress: 0, // Math.random() * 100,
         dependencies: '',
-      }
+      },
     }
   },
   methods: {
@@ -205,8 +232,9 @@ export default {
       // const id = uuidv4();
       this.tasks.push({
         id: this.tasks.length + 1,
-        ...this.newTaskModel
+        ...this.newTaskModel,
       })
+      this.showModal = false
     },
     demoViewMode(viewMode) {
       this.mode = viewMode
