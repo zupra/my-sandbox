@@ -70,7 +70,14 @@
         <a-button key="back" @click="showModal = !showModal">
           Закрыть
         </a-button>
-        <a-button key="submit" type="primary" @click="addTask">
+        <a-button
+          key="submit"
+          type="primary"
+          :disabled="
+            !(newTaskModel.name && newTaskModel.start && newTaskModel.end)
+          "
+          @click="addTask"
+        >
           Создать
         </a-button>
       </template>
